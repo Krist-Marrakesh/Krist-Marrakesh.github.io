@@ -171,7 +171,7 @@ h1 {
 .role-line .dot { color: var(--faint); margin: 0 8px; }
 
 .bio {
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 15px;
   line-height: 1.85;
   max-width: 56ch;
@@ -286,7 +286,7 @@ h1 + .intro-line { margin-top: -4px; }
 }
 
 .project-desc {
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 14.5px;
   line-height: 1.75;
   margin: 0 0 12px;
