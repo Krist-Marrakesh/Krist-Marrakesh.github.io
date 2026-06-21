@@ -1,0 +1,320 @@
+/* ============================================================
+   aarkhipochkin.github.io — Dracula-purple, terminal-minimal
+   ============================================================ */
+
+:root {
+  --bg:        #1a1626;
+  --bg-soft:   #221c33;
+  --card:      #251f3a;
+  --border:    #3a3155;
+  --border-soft: #2e2645;
+
+  --text:      #f3f0fa;
+  --text-dim:  #c9c3de;
+  --muted:     #9087b3;
+  --faint:     #6b6190;
+
+  --purple:    #bd93f9;
+  --purple-soft: #a685e8;
+  --pink:      #ff79c6;
+  --cyan:      #8be9fd;
+
+  --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --max-w: 660px;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(560px 360px at 82% -8%, rgba(189, 147, 249, 0.16), transparent 60%),
+    radial-gradient(420px 320px at -10% 30%, rgba(255, 121, 198, 0.07), transparent 55%);
+  background-repeat: no-repeat;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: var(--purple);
+  color: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- header / nav ---------- */
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  padding: 40px 0 28px;
+}
+
+.site-header .logo {
+  color: var(--purple);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.site-header .logo:hover { color: var(--pink); }
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-links a.active {
+  color: var(--purple);
+  position: relative;
+}
+
+/* ---------- breadcrumb ---------- */
+
+.crumb {
+  color: var(--faint);
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.crumb .seg-accent { color: var(--purple-soft); }
+
+/* ---------- hero / home ---------- */
+
+main { padding-bottom: 56px; }
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.5em;
+  margin-left: 2px;
+  background: var(--purple);
+  animation: blink 1.05s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.role-line {
+  color: var(--purple-soft);
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
+  margin: 0 0 28px;
+}
+
+.role-line .dot { color: var(--faint); margin: 0 8px; }
+
+.bio {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.85;
+  max-width: 58ch;
+  margin: 0 0 34px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-family: var(--mono);
+  font-size: 14px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--purple);
+  color: #1a1626;
+  font-weight: 600;
+}
+
+.btn-primary:hover { background: var(--pink); }
+
+.btn-ghost {
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+.btn-ghost:hover {
+  border-color: var(--purple-soft);
+  color: var(--text);
+}
+
+.avatar-wrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 6px rgba(189, 147, 249, 0.06);
+}
+
+/* ---------- projects list ---------- */
+
+.intro-line {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 36px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-row {
+  display: block;
+  padding: 22px 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.project-row:last-child { padding-bottom: 4px; }
+
+.project-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.project-title a {
+  color: var(--text);
+  font-size: 16.5px;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.project-title a:hover { color: var(--purple); }
+
+.project-arrow {
+  color: var(--faint);
+  font-size: 14px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.project-row:hover .project-arrow {
+  color: var(--pink);
+  transform: translate(2px, -2px);
+}
+
+.project-desc {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  line-height: 1.75;
+  margin: 0 0 12px;
+  max-width: 60ch;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 12px;
+  color: var(--purple-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 9px;
+  background: var(--bg-soft);
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--border-soft);
+  padding: 22px 0 36px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  font-size: 13px;
+  color: var(--faint);
+}
+
+footer a { color: var(--muted); }
+footer a:hover { color: var(--purple); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 540px) {
+  .wrap { padding: 0 18px; }
+  h1 { font-size: 25px; }
+  .avatar { width: 92px; height: 92px; }
+  .site-header { padding: 28px 0 22px; }
+  .project-title { flex-direction: column; gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; opacity: 1; }
+  html { scroll-behavior: auto; }
+}
